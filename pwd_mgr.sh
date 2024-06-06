@@ -106,7 +106,7 @@ trap quit SIGINT
 # Main menu
 while true; do
     echo
-    echo "LockSafe Menu:"
+    echo "ShellGuard Menu:"
     echo "1. Add a new password"
     echo "2. Retrieve a password"
     echo "3. List all users"
