@@ -3,7 +3,7 @@
 <div align="center">
     <img src="./logo.png" alt="logo Image" style="border-radius: 50%; width: 300px; height: 300px; object-fit: cover;">
 </div>
-
+ 
 #### 🌟 Features of ShellGuard
 
 * **Session PIN Lock** 🔐: ShellGuard secures your session using a PIN. Once unlocked, the session remains open until you exit, so no need to re-enter the PIN constantly.
