@@ -1,7 +1,7 @@
 # ShellGuard: Your Secure Shell Password Manager 🛡️
 
 <div align="center">
-    <img src="./logo.png" alt="logo Image" style="border-radius: 50%; width: 300px; height: 300px; object-fit: cover;">
+    <img src="./logo2.png" alt="logo Image" style="border-radius: 50%; width: 300px; height: 300px; object-fit: cover;">
 </div>
 
 #### 🌟 Features of ShellGuard
