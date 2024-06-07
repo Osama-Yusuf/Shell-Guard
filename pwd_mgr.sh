@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Initialize session
 if [[ "$SESSION_UNLOCKED" != "true" ]]; then
     read -sp "Enter your PIN to unlock the session: " PIN
     echo
@@ -13,8 +12,6 @@ plain_file="passwords.txt"
 # Decrypt the password file
 decrypt_file() {
     if [ -e "$encrypted_file" ]; then
-        # Attempt to decrypt and check for errors
-        # decryption_output=$(openssl enc -aes-256-cbc -d -in "$encrypted_file" -out "$plain_file" -pass pass:$PIN 2>&1)
         decryption_output=$(openssl enc -aes-256-cbc -d -pbkdf2 -in "$encrypted_file" -out "$plain_file" -pass pass:$PIN 2>&1)
         if echo "$decryption_output" | grep -q "bad decrypt"; then
             echo "Wrong PIN. Exiting."
@@ -28,16 +25,16 @@ decrypt_file() {
     fi
 }
 
-# Encrypt the password file only if "$plain_file" is not empty
+# Encrypt the plain password file
 encrypt_file() {
     openssl enc -aes-256-cbc -pbkdf2 -in "$plain_file" -out "$encrypted_file" -pass pass:$PIN
     rm "$plain_file"
 }
 
-# Decrypt the file at the start
+# Decrypt the encrypted password file
 decrypt_file
 
-# Define function to add a password
+# Function to add a password
 add_password() {
     read -p "Enter the account name: " account
     read -sp "Enter the password: " password
@@ -62,7 +59,7 @@ get_clipboard_command() {
     esac
 }
 
-# Define function to retrieve a password and copy it to the clipboard
+# Function to retrieve a password and copy it to the clipboard
 get_password() {
     read -p "Enter the account name: " account
     password=$(grep "^$account:" "$plain_file" | cut -d ":" -f2)
@@ -83,7 +80,7 @@ get_password() {
     echo
 }
 
-# Define function to list all users
+# Function to list all users
 list_users() {
     clear
     echo "Current users:"
@@ -91,6 +88,7 @@ list_users() {
     echo
 }
 
+# Function to quit the script
 quit() {
     encrypt_file
     # check if script is source or not if not reload bash to save changes like "cd dirctory"
