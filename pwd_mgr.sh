@@ -53,6 +53,9 @@ get_clipboard_command() {
         "Darwin")
             echo "pbcopy"  # macOS uses pbcopy
             ;;
+        "CYGWIN"*|"MINGW"*|"MSYS"*)
+            echo "clip"  # Windows Subsystem for Linux or similar environments like Git Bash
+            ;;
         *)
             echo "Unsupported OS for clipboard copying"
             ;;
