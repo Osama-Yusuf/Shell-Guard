@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # File variables
-encrypted_file="passwords-tst.enc"
-plain_file="passwords-tst.txt"  
+encrypted_file="passwords.enc"
+plain_file="passwords.txt"  
 
 # Check if there are no arguments
 if [ $# -eq 0 ]; then
