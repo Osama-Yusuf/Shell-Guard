@@ -68,7 +68,7 @@ get_password() {
     password=$(grep "^$account:" "$plain_file" | cut -d ":" -f2)
     if [ -n "$password" ]; then
         clear
-        echo "Password for $account: $password"
+        # echo "Password for $account: $password" # if you want to see the password uncomment this
         # Determine the correct clipboard command and use it
         clipboard_cmd=$(get_clipboard_command)
         if [ "$clipboard_cmd" = "Unsupported OS for clipboard copying" ]; then
