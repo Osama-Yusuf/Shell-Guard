@@ -65,7 +65,7 @@ get_clipboard_command() {
 # Function to retrieve a password and copy it to the clipboard
 get_password() {
     read -p "Enter the account name: " account
-    password=$(grep "^$account:" "$plain_file" | cut -d ":" -f2)
+    password=$(grep "^$account:" "$plain_file" | cut -d ":" -f2- | xargs)
     if [ -n "$password" ]; then
         clear
         # echo "Password for $account: $password" # if you want to see the password uncomment this
